@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+#wrap{
+	width:450px;
+	height: 260px;
+	background: #ffb746;
+	/*border-radius:10px;*/
+	border: 1px solid #000;
+	font-family: "微软雅黑";
+	
+	/*box-shadow:1px 1px 1px #000;*/
+}
+nav a{
+	display: inline-block;
+	width:146px;
+	height: 40px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 40px;
+	color: #000;
+	text-decoration: none;
+	background: #fff;
+}
+a.active{
+	background: #ffb746;
+	color: #fff;
+}
+
+#box{
+	margin:20px;
+	height: 180px;
+}
+#box ul{
+	width:226px;
+	list-style: none;
+	float: left;
+}
+#box div{
+	display: none;
+}
+#box div.show{
+	display: block;
+}
+#box ul li{
+	height: 60px;
+	width
+}
+#box ul li.active{
+	background:#fff;
+}
+#box li p{
+	font-size: 14px;
+	color:#fff;
+	text-indent:2em;
+	line-height:2.5em;
+	height: 35px;
+}
+#box li.active p{
+	font-size: 16px;
+	color:#000;
+}
+#box li.active span{
+	color:#000;
+}
+img{
+	width:178px;
+	height: 178px;
+	display: block;
+	float: left;
+	border: 2px solid #fff;
+	display: none;
+}
+img.active{
+	display: block;
+}
+span{
+	font-size: 12px;
+	line-height: 20px;
+	text-indent:2.5em;
+	display: block;
+	color:#fff;
+}
+#box div{
+	height: 180px;
+	width:
+}
+
+</style>
+</head>
+<body>
+	<section id="wrap">
+		<nav>
+			<a href="javascript:;" class="active">专题</a>
+			<a href="javascript:;">视频</a>
+			<a href="javascript:;">图片</a>
+		</nav>
+		<div id="box">
+			<div class="show">
+				<img src="img/1.jpg" alt="" class="active"/>
+				<img src="img/2.jpg" alt=""/>
+				<img src="img/3.jpg" alt=""/>
+				<ul class="show">
+					<li class="text active">
+						<p>奇虎360纽交所上市11</p>
+						<span>2016-10-12</span>
+					</li>
+					<li >
+						<p>2011年IT领袖峰会</p>
+						<span>2016-10-12</span>
+					</li>
+					<li>
+						<p>CCBN召开 助三网融合</p>
+						<span>2016-10-12</span>
+					</li>
+				</ul>
+			</div>
+			
+			<div>
+				<img src="img/4.jpg" alt=""  class="active"/>
+				<img src="img/3.jpg" alt=""/>
+				<img src="img/1.jpg" alt=""/>
+				<ul class="show">
+					<li class="text active">
+						<p>奇虎360纽交所上市222</p>
+						<span>2016-10-12</span>
+					</li>
+					<li >
+						<p>2011年IT领袖峰会</p>
+						<span>2016-10-12</span>
+					</li>
+					<li>
+						<p>CCBN召开 助三网融合</p>
+						<span>2016-10-12</span>
+					</li>
+				</ul>
+			</div>
+			
+			<div>
+				<img src="img/1.jpg" alt=""  class="active"/>
+				<img src="img/2.jpg" alt=""/>
+				<img src="img/3.jpg" alt=""/>
+				<ul class="show">
+					<li class="active">
+						<p>奇虎360纽交所上市333</p>
+						<span>2016-10-12</span>
+					</li>
+					<li >
+						<p>2011年IT领袖峰会</p>
+						<span>2016-10-12</span>
+					</li>
+					<li>
+						<p>CCBN召开 助三网融合</p>
+						<span>2016-10-12</span>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+	</section>
+<script type="text/javascript">
+	const nav = document.querySelector('nav');
+	const Aa = nav.children;
+	const pic = document.querySelectorAll('img');
+	const div = box.querySelectorAll('div');
+	const lis = document.querySelectorAll('li');
+	var onoff = true;
+	let bb = 0;
+	let index = 0;
+	let timer = null;
+	//执行一次封装函数
+	move()
+//	鼠标控制自动播放
+	for(let i=0;i<Aa.length;i++){
+		//当移入导航页的时候
+		Aa[i].onmouseover = function(){
+			//先清掉定时器
+			clearInterval(timer)
+			//清掉类
+			for(let i=0;i<Aa.length;i++){
+				Aa[i].className=''
+				div[i].className=''
+			}
+			//加上应该加上的类
+			Aa[i].className='active'
+			div[i].className='show'
+			//清掉li和照片的类
+			for(let i=0;i<lis.length;i++){
+				lis[i].className=''
+				pic[i].className=''
+			}
+			//加上应该加的类
+			pic[3*i].className='active'
+			lis[3*i].className='active'
+			//执行一次函数
+			move()
+		}
+	}
+	for(let i=0;i<lis.length;i++){
+		lis[i].onmouseover = function(){
+			clearInterval(timer)
+			for(let i=0;i<lis.length;i++){
+				lis[i].className=''
+				pic[i].className=''
+			}
+			lis[i].className='active'
+			pic[i].className='active'
+		}
+	}
+	function move(){
+		timer = setInterval(function(){
+			bb++
+			bb %= 9;
+			for(let i =0;i<Aa.length;i++){
+				Aa[i].className='';
+				div[i].className='';
+			}
+			div[Math.floor(bb/3)].className='show'
+			Aa[Math.floor(bb/3)].className='active'
+			for(let i=0;i<lis.length;i++){
+				pic[i].className=''
+				lis[i].className=''
+			}
+			pic[bb].className='active'
+			lis[bb].className='active'
+		},1000)
+	}
+</script>
+</body>
+</html>
