@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+	</head>
+	<body>
+		<div class="box">
+			<div class="content">
+				<div class="main">
+					<ul class="main-con">
+					</ul>
+					<div class="main-foot">
+						<div class="left"></div>
+						<input class="mid" type="text"  placeholder="请输入" />
+						<div class="send">发送</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var onoff = true;
+			const send = document.querySelector('.send')
+			const txt = document.querySelector('.mid');
+			const ul = document.querySelector('.main-con');
+			const pic = document.querySelector('.left')
+			send.onclick = function(){
+				if (txt.value) {
+						
+					if (onoff) {
+						ul.innerHTML +=  `<li>
+												<div class="img lico"></div>
+												<div class = "text1">${txt.value}</div>
+										</li>`;
+						}else{
+							ul.innerHTML +=  `<li>
+													<div class="img1 rico"></div>
+													<div class = "text2">${txt.value}</div>
+											</li>`;
+						}
+						txt.focus();
+						txt.value = ''
+					}else{
+						alert('你就不能输入点内容啊')
+					}
+				} 
+				
+			pic.onclick = function(){
+				this.classList.toggle('ba');
+				onoff = !onoff
+			}
+			
+			
+			
+			
+//			var left = document.querySelector('.left');
+//			var ba1 = document.querySelector('.ba');
+//			var text = document.querySelector('.mid');
+//			var send1 = document.querySelector('.send');
+//			var main1 = document.querySelector('.main-con');
+//			var a = 1;
+//			
+//			text.focus();
+//			
+//			left.onclick = function(){
+//				left.classList.toggle('ba');
+//				++a;
+//			}
+//			
+//				//先点击发送键而后进行判断
+//			send1.onclick = function(){
+//				//判断文本框有没有内容。如果文本框内有内容则执行下面的代码。
+//				if(text.value){
+////				判断点击左头像后，变量的值是奇数还是偶数，如果是奇数则执行下面的值
+//					if (a % 2 == 1){
+//					var val = 
+//					`<li class="chack">
+//						<div class="img lico" ></div>
+//						<div class="text1">${text.value}</div>
+//					</li>`;
+//					main1.innerHTML = val + main1.innerHTML;
+//					text.focus();
+//					text.value = '';
+//				}
+//				else{
+//					var val = 
+//					`<li class="chack">
+//						<div class="img1 rico" ></div>
+//						<div class="text2">${text.value}</div>
+//					</li>`;
+//					main1.innerHTML = val + main1.innerHTML;
+//					text.focus();
+//					text.value = '';
+//				}
+//				}
+//				else
+//				{alert('你就不能输入点内容啊')}
+//				
+//			
+//			}
+		</script>
+	</body>
+</html>
