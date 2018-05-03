@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index1.css"/>
+		<style>
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="head">
+				<h3>请为下面的div设置样式:</h3>
+				<div class="onclik">点击设置</div>
+			</div>
+			<div class="content" id="box"></div>
+			<div class="shadow">
+				<div class="control">
+					<span class="top">请选择背景色：
+					<div class="red">红</div>
+					<div class="yellow">黄</div>
+					<div class="blue">蓝</div>
+					</span>
+					<span class="mid">请选择宽(px)：
+						<div class="small ch100">100</div>
+						<div class="small ch200">200</div>
+						<div class="small ch400">400</div>
+					</span>
+					<span class="bottom">请选择高(px)：
+						<div class="small he100">100</div>
+						<div class="small he200">200</div>
+						<div class="small he400">400</div>
+					</span>
+					<div class="recover recover1">恢复</div>
+					<div class="recover true">确定</div>
+				</div>
+			</div>
+		</div>
+			
+		<script>
+		const btn = document.querySelector('.onclik');
+		const kong = document.querySelector('.shadow')
+		btn.onclick = function (){
+			kong.style.display = 'block';
+		}
+		const color = document.querySelectorAll('.top div');	
+		const wid = document.querySelectorAll('.mid div');
+		const hei = document.querySelectorAll('.bottom div');
+		const 
+		btn.onclick = function (){
+			kong.style.display = 'block';
+		}
+		for (let  i = 0; i < color.length; i++) {
+			color[i].onclick= function(){
+				box.style.backgroundColor = this.className
+				console.log(this.className)
+			}
+			wid[i].onclick= function(){
+				box.style.width = Number(this.innerHTML)+'px'
+			}
+			hei[i].onclick= function(){
+				box.style.height = Number(this.innerHTML)+'px'
+			}
+		}
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTbox html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box2{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<input class="box" type="text">
+		<input class="box1" type="text">
+		<div class="box2"></div>
+		<input  type="button" class="but" value="按钮" />
+		<script>
+			var but = document.querySelector('.but');
+			var box = document.querySelector('.box');
+			var box1 = document.querySelector('.box1');
+			var box2 = document.querySelector('.box2');
+			
+			
+			but.onclick = function(){
+				console.log(box.value);
+				console.log(box1.value);
+				box2.style[box.value] = box1.value;
+			}
+		</script>
+	</body>
+</html>
