@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="222.css"/>
+	</head>
+	<body>
+		<div class="box">
+			<div class="content">
+				<div class="main-con">
+					<header class="head">
+						<div class="hd-left color">循环切换</div>
+						<div class="hd-right">顺序切换</div>
+					</header>
+					<div class="des">1/4</div>
+					<section class="main-img">
+						<img class="img1" src="img/1.jpg"/>
+						<div class="prev"></div>
+						<div class="next"></div>
+					</section>
+					<div class="des1">
+						<div class="des-ino">
+							Javescri  提醒你
+						</div>
+						<div class="des-ino1">
+							这是最后一张了
+						</div>
+						<input class="des-btn" type="button" value="确定" />
+					</div>
+					<div class="des2">
+						<div class="des-ino">
+							Javescri  提醒你
+						</div>
+						<div class="des-ino1">
+							这是第一张了
+						</div>
+						<input class="des-btn" type="button" value="确定" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			const hd = document.getElementsByTagName('header');
+			const title = hd[0].children;
+			const prev = document.querySelector('.prev');
+			const next = document.querySelector('.next');
+			const pic = document.getElementsByTagName('img')[0];
+			const des = document.querySelector('.des');
+			const des1 = document.querySelector('.des1')
+			const des2 = document.querySelector('.des2')
+			const btn = document.querySelectorAll('input')
+			console.log(pic)
+			var a= 1;
+			var onoff = true;
+			title[0].onclick = function(){
+				this.classList.add('color')
+				this.nextElementSibling.classList.remove('color');
+				onoff = true
+			}
+			title[1].onclick = function(){
+				this.classList.add('color')
+				this.previousElementSibling.classList.remove('color')
+				onoff = false
+			}
+			next.onclick = function(){
+				a++
+				if (onoff) {
+					pic.src = 'img/'+ (a>4?a=1:a) +'.jpg';
+					des.innerHTML = a + '/4';
+					
+				} else if(a<5){
+					pic.src = 'img/'+ a +'.jpg';
+					des.innerHTML = a + '/4';
+				}else{
+					des1.style.display = 'block'
+				}
+			}
+			prev.onclick = function(){
+				a--
+				if (onoff) {
+					pic.src = 'img/'+ (a<1?a=4:a) +'.jpg';
+					des.innerHTML = a + '/4';
+				} else if(a>0){
+					pic.src = 'img/'+ a +'.jpg';
+					des.innerHTML = a + '/4';
+				}else{
+					des2.style.display = 'block';
+				}
+			}
+			btn[0].onclick = function(){
+				this.parentNode.style.display = 'none'
+			}
+			btn[1].onclick = function(){
+				this.parentNode.style.display = 'none'
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+//			var hdleft = document.querySelector('.hd-left');
+//			var hdright = document.querySelector('.hd-right');
+//			var prev = document.querySelector('.prev')
+//			var next = document.querySelector('.next')
+//			var oImg = document.querySelector('.img1')
+//			var des1 = document.querySelector('.des1')
+//			var des2 = document.querySelector('.des2')
+//			var des = document.querySelector('.des')
+//			var desBtn = document.querySelector('.des-btn')
+//			var a = 1;
+//			var b = 2;
+//			var c = true;
+//			
+//			//js首先执行这条代码。让循环切换首先执行，初始代码。
+//				hdright.classList.remove('color');
+//				hdleft.classList.add('color');
+//			
+//			//当点击左边按钮有背景颜色时，不执行
+//			hdleft.onclick = function(){
+//				if(c){
+//				hdright.classList.remove('color');
+//				hdleft.classList.add('color');
+////				给b变量设置固定值，判断的时候调用
+//				b = 2 ;
+//				}
+//			}
+//				//当点击右边按钮没有背景颜色时，执行
+//			if(c){
+//				hdright.onclick = function(){
+//				hdleft.classList.remove('color');
+//				hdright.classList.add('color');
+//				b = 1 ;
+//				}
+//			}
+//			
+//			//当点击左边的按钮，
+//			prev.onclick = function(){
+//				if (c){
+////					如果a<2
+//					if(a<2){
+//						//首先判断点击的是循环播放
+//						if(b % 2 == 0){
+//							a = 4
+//							console.log(b)
+//						}
+//						else{
+//							des1.style.display = 'block'
+//							c = !c
+//						}
+//					}else{
+//						a--
+//					}
+//					oImg.src = `img/${a}.jpg`;
+//					des.innerHTML = a + '/' + '4';
+//				}
+//			}
+//			next.onclick = function(){
+//				if(c){
+//					if(a>3){
+//					if(b % 2 == 0){
+//						a = 1
+//					}else{
+//						des1.style.display = 'block'
+//						c = !c
+//					}
+//					}else {
+//						a++
+//					}
+//					oImg.src = `img/${a}.jpg`;
+//					des.innerHTML = a + '/' + '4'
+//				}
+//			}
+//				desBtn.onclick = function(){
+//					des1.style.display = 'none'
+//					c = true
+//				}
+//				
+		</script>
+	</body>
+</html>
